@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>互動式網頁應用程式</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+        }
+        body {
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+            padding: 28px;
+            text-align: center;
+        }
+        h1 {
+            color: #1a73e8;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+            text-align: left;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #444;
+        }
+        input {
+            width: 100%;
+            padding: 10px 14px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 15px;
+        }
+        .btn {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .btn:hover {
+            background-color: #1557b0;
+        }
+        .output-box {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 16px;
+            min-height: 100px;
+            margin-top: 20px;
+            text-align: left;
+            font-size: 15px;
+            color: #333;
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>網頁互動主控台</h1>
+
+    <div class="form-group">
+        <label for="userInput">輸入內容：</label>
+        <input type="text" id="userInput" placeholder="請在此輸入內容...">
+    </div>
+
+    <button class="btn" onclick="processData()">執行並顯示結果</button>
+
+    <div class="output-box" id="outputBox">
+        結果將會顯示在這裡...
+    </div>
+</div>
+
+<script>
+    function processData() {
+        const inputVal = document.getElementById('userInput').value.trim();
+        const outputBox = document.getElementById('outputBox');
+
+        if (!inputVal) {
+            outputBox.innerText = '⚠️ 請先輸入任何文字再執行！';
+            outputBox.style.color = '#d93025';
+            return;
+        }
+
+        outputBox.style.color = '#333';
+        outputBox.innerText = `🎉 執行成功！輸入的內容為：${inputVal}`;
+    }
+</script>
+
+</body>
+</html>
